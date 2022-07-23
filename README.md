@@ -34,7 +34,14 @@ THEN I exit the application, and the HTML is generated
 ```
 ## TECHNOLOGIES USED: 
 
+Bootstrap (https://getbootstrap.com/docs/4.0/components/card/)
+
+jQuery (https://jquery.com/)
+
+npm (https://www.npmjs.com/)
+
 NODE.js (modules: fs, inquirer 6.5.0, jest 24.9.0)
+(https://nodejs.org/en/)
 
 ## SCREENSHOT:
 
