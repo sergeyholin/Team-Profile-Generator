@@ -14,27 +14,27 @@ describe("Engineer", () => {
     describe("getId", () => {
         it("should return an id", () => {
             const id = 2;
-            const engineer = new Engineer(id);
-            const result = engineer.getId();
-            expect(result).toEqual(id);
+            const engineer = new Engineer(this.id);
+            const result = engineer.getId(this.id);
+            expect(result).toEqual(this.id);
         });
     });
 
     describe("getEmail", () => {
         it("should return an email", () => {
             const email = "john@mail.com";
-            const engineer = new Engineer(email);
-            const result = engineer.getEmail(email);
-            expect(result).toEqual(email);
+            const engineer = new Engineer(this.email);
+            const result = engineer.getEmail(this.email);
+            expect(result).toEqual(this.email);
         });
     });
 
     describe("getGithub", () => {
         it("should return a github", () => {
             const github = "github.com/john";
-            const engineer = new Engineer(github);
-            const result = engineer.getGithub(github);
-            expect(result).toEqual(github);
+            const engineer = new Engineer(this.github);
+            const result = engineer.getGithub(this.github);
+            expect(result).toEqual(this.github);
         });
     });
 

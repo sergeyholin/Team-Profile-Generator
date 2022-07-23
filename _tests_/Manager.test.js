@@ -14,27 +14,27 @@ describe("Manager", () => {
     describe("getId", () => {
         it("should return an id", () => {
             const id = 4;
-            const manager = new Manager(id);
-            const result = manager.getId();
-            expect(result).toEqual(id);
+            const manager = new Manager(this.id);
+            const result = manager.getId(this.id);
+            expect(result).toEqual(this.id);
         });
     });
 
     describe("getEmail", () => {
         it("should return an email", () => {
             const email = "tom@mail.com";
-            const manger = new Manager(email);
-            const result = manger.getEmail(email);
-            expect(result).toEqual(email);
+            const manger = new Manager(this.email);
+            const result = manger.getEmail(this.email);
+            expect(result).toEqual(this.email);
         });
     });
 
     describe("getOfficeNumber", () => {
         it("should return office number", () => {
             const officeNumber = "111-111-1111";
-            const manager = new Manager(officeNumber);
-            const result = manager.getOfficeNumber(officeNumber);
-            expect(result).toEqual(officeNumber);
+            const manager = new Manager(this.officeNumber);
+            const result = manager.getOfficeNumber(this.officeNumber);
+            expect(result).toEqual(this.officeNumber);
         });
     });
 

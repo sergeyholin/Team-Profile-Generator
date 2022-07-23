@@ -14,27 +14,27 @@ describe("Intern", () => {
     describe("getId", () => {
         it("should return an id", () => {
             const id = 3;
-            const intern = new Intern(id);
-            const result = intern.getId();
-            expect(result).toEqual(id);
+            const intern = new Intern(this.id);
+            const result = intern.getId(this.id);
+            expect(result).toEqual(this.id);
         });
     });
 
     describe("getEmail", () => {
         it("should return an email", () => {
             const email = "judy@mail.com";
-            const Intern = new Intern(email);
-            const result = Intern.getEmail(email);
-            expect(result).toEqual(email);
+            const intern = new Intern(this.email);
+            const result = intern.getEmail(this.email);
+            expect(result).toEqual(this.email);
         });
     });
     
     describe("getSchool", () => {
         it("should return school", () => {
             const school = "UTA";
-            const intern = new Intern(school);
-            const result = intern.getSchool(school);
-            expect(result).toEqual(school);
+            const intern = new Intern(this.school);
+            const result = intern.getSchool(this.school);
+            expect(result).toEqual(this.school);
         });
     });
 
