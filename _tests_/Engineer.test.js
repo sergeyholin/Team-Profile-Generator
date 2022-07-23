@@ -15,8 +15,17 @@ describe("Engineer", () => {
         it("should return an id", () => {
             const id = 2;
             const engineer = new Engineer(id);
-            const result = engineer.getId(id);
+            const result = engineer.getId();
             expect(result).toEqual(id);
+        });
+    });
+
+    describe("getEmail", () => {
+        it("should return an email", () => {
+            const email = "john@mail.com";
+            const engineer = new Engineer(email);
+            const result = engineer.getEmail(email);
+            expect(result).toEqual(email);
         });
     });
 

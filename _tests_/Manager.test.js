@@ -15,8 +15,17 @@ describe("Manager", () => {
         it("should return an id", () => {
             const id = 4;
             const manager = new Manager(id);
-            const result = manager.getId(id);
+            const result = manager.getId();
             expect(result).toEqual(id);
+        });
+    });
+
+    describe("getEmail", () => {
+        it("should return an email", () => {
+            const email = "tom@mail.com";
+            const manger = new Manager(email);
+            const result = manger.getEmail(email);
+            expect(result).toEqual(email);
         });
     });
 

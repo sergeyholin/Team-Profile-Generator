@@ -15,11 +15,20 @@ describe("Intern", () => {
         it("should return an id", () => {
             const id = 3;
             const intern = new Intern(id);
-            const result = intern.getId(id);
+            const result = intern.getId();
             expect(result).toEqual(id);
         });
     });
 
+    describe("getEmail", () => {
+        it("should return an email", () => {
+            const email = "judy@mail.com";
+            const Intern = new Intern(email);
+            const result = Intern.getEmail(email);
+            expect(result).toEqual(email);
+        });
+    });
+    
     describe("getSchool", () => {
         it("should return school", () => {
             const school = "UTA";
