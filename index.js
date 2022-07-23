@@ -89,7 +89,7 @@ function engineerTemplate() {
       },
       {
         type: 'input',
-        message: 'What is engineers GitHub?',
+        message: 'What is engineers GitHub username?',
         name: 'engineerGithub'
       },
     ])
@@ -157,14 +157,15 @@ function buildYourTeam() {
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">ID: ${employeeArray[i].id}</li>
-                  <li class="list-group-item">Email: ${employeeArray[i].email}</li>
+                  <li class="list-group-item">Email: <a href = "mailto: ${employeeArray[i].email}">${employeeArray[i].email}</a></li>
                   `
 // On top of general Employee class properties, manager needs to have it's unique property added, "getOfficeNumber" method
     if (employeeArray[i].getRole() === "Manager") {
-      htmlTemplate += `<li class="list-group-item">OfficeNumber:${employeeArray[i].getOfficeNumber()}</li>`
+      htmlTemplate += `<li class="list-group-item">OfficeNumber: ${employeeArray[i].getOfficeNumber()}</li>`
 // On top of general Employee class properties, engineer needs to have it's unique property added, "getGithub" method
     } else if (employeeArray[i].getRole() === "Engineer") {
-      htmlTemplate += `<li class="list-group-item">GitHub: ${employeeArray[i].getGithub()}</li>`
+      htmlTemplate += `<li class="list-group-item">GitHub: <a href="https://github.com/${employeeArray[i].getGithub()}" target="_blank">${employeeArray[i].getGithub()}</a>
+      </li>`
 // On top of general Employee class properties, intern needs to have it's unique property added, "getSchool" method
     } else {
       htmlTemplate += `<li class="list-group-item">School: ${employeeArray[i].getSchool()}</li>`
@@ -186,7 +187,7 @@ function buildYourTeam() {
     
       <body>
         <nav class="navbar navbar-light bg-info">
-          <span class="navbar-brand mb-0 h1"><h1 style="margin-left:470px;">My Team</h1></span>
+          <span class="navbar-brand mb-0 h1"><h1 style="margin-left:530px;">My Team</h1></span>
         </nav>
         <section class="container-fluid">
           <div class="row" style= "margin-left:5%;">
