@@ -1,9 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 // const Employee = require("./lib/Employee")
-const Manager = require("./lib/manager")
-const Engineer = require("./lib/engineer")
-const Intern = require("./lib/intern")
+const Manager = require("./lib/Manager")
+const Engineer = require("./lib/Engineer")
+const Intern = require("./lib/Intern")
 // An array that will contain all team member object data
 const employeeArray = []
 // Initial Function that allows you to pick a team template
@@ -149,48 +149,57 @@ function buildYourTeam() {
   for (var i = 0; i < employeeArray.length; i++) {
 // for every object in the array "employeeArray[i]" insert template literal key value data from Employee class "name,id,email and get role method"
     htmlTemplate += `
-    <div class="card" style="width: 18rem;">
-  <div class="card-header">
-    Featured
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Name: ${employeeArray[i].name}</li>
-    <li class="list-group-item">ID: ${employeeArray[i].id}</li>
-    <li class="list-group-item">Email: ${employeeArray[i].email}</li>
-    <li class="list-group-item">Role: ${employeeArray[i].getRole()}</li>
-  `
+    <div class="col-12 col-md-4 col-lg-4 " style = "margin-top: 10px;">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                  <h3>Name: ${employeeArray[i].name}</h3>
+                  <h4>Role: ${employeeArray[i].getRole()}</h4>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">ID: ${employeeArray[i].id}</li>
+                  <li class="list-group-item">Email: ${employeeArray[i].email}</li>
+                  `
 // On top of general Employee class properties, manager needs to have it's unique property added, "getOfficeNumber" method
     if (employeeArray[i].getRole() === "Manager") {
       htmlTemplate += `<li class="list-group-item">OfficeNumber:${employeeArray[i].getOfficeNumber()}</li>`
 // On top of general Employee class properties, engineer needs to have it's unique property added, "getGithub" method
     } else if (employeeArray[i].getRole() === "Engineer") {
-      htmlTemplate += `<li class="list-group-item">${employeeArray[i].getGithub()}</li>`
+      htmlTemplate += `<li class="list-group-item">GitHub: ${employeeArray[i].getGithub()}</li>`
 // On top of general Employee class properties, intern needs to have it's unique property added, "getSchool" method
     } else {
-      htmlTemplate += `<li class="list-group-item">${employeeArray[i].getSchool()}</li>`
+      htmlTemplate += `<li class="list-group-item">School: ${employeeArray[i].getSchool()}</li>`
      }
     htmlTemplate += `</ul>
-    </div>`}
+    </div>
+</div> `}
 // general HTML frame where templates will be inserted
-    var html = `<!doctype html>
+    var html = `<!DOCTYPE html>
     <html lang="en">
       <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Bootstrap demo</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <title>My Team</title>
       </head>
+    
       <body>
-      <header class="bg-danger text-center">
-        <h1>Hello, world!</h1>
-        </header>
-        <main class="container d-flex flex-wrap">
-        ${htmlTemplate}
-
-        </main>
+        <nav class="navbar navbar-light bg-info">
+          <span class="navbar-brand mb-0 h1"><h1 style="margin-left:470px;">My Team</h1></span>
+        </nav>
+        <section class="container-fluid">
+          <div class="row" style= "margin-left:5%;">
+          ${htmlTemplate}
+          </div>
+        </section>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="./assets/js/script.js"></script>
       </body>
     </html>`
 // Creating HTML file with fs module
-    fs.writeFile('index.html', html, (err) =>
+    fs.writeFile('./dist/index.html', html, (err) =>
     err ? console.log(err) : console.log("Success!")
     )
 };
